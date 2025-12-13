@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Catalogue- Examination</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+
+</head>
+
+<body>
+
+
+    <nav> <img src="images/Langster Catalogue.png" alt="logo">
+        <div class="navigation">
+            <ul id="nav-links">
+                <li><a href="#" data-section="home" id="nav-home-link">Home</a></li>
+                <li><a href="#" data-card="login" id="nav-account-link">Account</a></li>
+                <li><a href="#" data-card="catalogue" id="nav-catalogue-link">Catalogue</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home">
+        <h2>Read A Better Future</h2>
+        <p>Langster Catalogue- a modern, user friendly platform that allows easy and fast access to resources for a more
+            convieneint library experience. </p>
+        <div class="button">
+            <a class="Account" href="#" data-card="register">Create Account</a>
+            <a class="Catalogue" href="catalogue.html">Open Catalogue</a>
+        </div>
+    </section>
+
+    <section id="Services">
+        <h1>Our Services</h1>
+        <p>We provide hands on library experiences for your convience anytime anywhere </p>
+        <div class="base">
+            <div class="feature-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <h3>Search for book</h3>
+                <p>Find your next read here</p>
+            </div>
+            <div class="feature-box">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <h3>Borrow book</h3>
+                <p>Request for the next exciting book in your read list</p>
+            </div>
+            <div class="feature-box">
+                <i class="fa-solid fa-calendar"></i>
+                <h3>Due date</h3>
+                <p>Track timeline of book submission deadline</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="popular-books">
+        <h1>Popular Books </h1>
+        <p> A few Best Sellers recommended to make the decision process faster and easier</p>
+
+        <div class="popular-box">
+
+            <div class="Books" data-isbn="1234">
+                <img src="images/The-Silent-Patient.jpg" alt="The Silent Patient cover">
+                <div class="details">
+                    <h6>The Silent Patient</h6>
+                    <p class="description">A shocking murder and six years of silence from the only suspect.</p>
+                    <p class="price">GHS 250</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="Books" data-isbn="5678">
+            <img src="images/one of us is lying.webp" alt="One of Us Is Lying cover">
+            <div class="details">
+                <h6>One of Us Is Lying</h6>
+                <p class="description">Five students walk into detention but only four come out alive.</p>
+                <p class="price">GHS 210</p>
+            </div>
+        </div>
+
+        <div class="Books" data-isbn="91011">
+            <img src="images/the fault in our stars.jpg" alt="The Fault in Our Stars cover">
+            <div class="details">
+                <h6>The Fault in Our Stars</h6>
+                <p class="description">A heartbreaking love story between two teens facing illness.</p>
+                <p class="price">GHS 100</p>
+            </div>
+        </div>
+
+        <div class="Books" data-isbn="121314">
+            <img src="images/twisted love.webp" alt="Twisted Love cover">
+            <div class="details">
+                <h6>Twisted Love</h6>
+                <p class="description">Two lovers confront buried secrets and painful pasts.</p>
+                <p class="price">GHS 160</p>
+            </div>
+        </div>
+
+        <div class="Books" data-isbn="151617">
+            <img src="images/becoming.webp" alt="Becoming cover">
+            <div class="details">
+                <h6>Becoming</h6>
+                <p class="description">Michelle Obama shares her journey from Chicago to the White House.</p>
+                <p class="price">GHS 250</p>
+            </div>
+        </div>
+
+        <div class="Books" data-isbn="181920">
+            <img src="images/twilight.webp" alt="Twilight cover">
+            <div class="details">
+                <h6>Twilight</h6>
+                <p class="description">Bella Swan falls in love with a mysterious vampire.</p>
+                <p class="price">GHS 320</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="registration">
+            <h1> New Realeses are coming!! </h1>
+
+            <p>Are you already Registered?</p>
+
+           <!-- REGISTER CARD -->
+        <div class="card" id="register-card">
+            <div class="card-content">
+                <span class="close" data-card="register">&times;</span>
+                <h3>Create Your Free Account</h3>
+                <input type="text" placeholder="Name" id="reg-name">
+                <input type="email" placeholder="E-mail" id="reg-email">
+                <input type="text" placeholder="Phone Number" id="reg-phone">
+                <input type="password" placeholder="Password" id="reg-password">
+
+                <button id="register-button">Register</button>
+                <p>Already have an Account? <a href="#" data-card="login">Login</a></p>
+            </div>
+        </div>
+
+
+<!-- LOGIN CARD -->
+        <div class="card" id="login-card">
+            <div class="card-content">
+                <span class="close" data-card="login">&times;</span>
+                <h3>Login</h3>
+
+                <input type="email" placeholder="E-mail" id="login-email">
+                <input type="password" placeholder="Password" id="login-password">
+
+                <button id="login-button">Login</button>
+            </div>
+        </div>
+
+
+                
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="copyright">
+            <p> &copy; 2025 Langster project. All rights reserved</p>
+            <div class="social-media">
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-tiktok"></i>
+
+            </div>
+
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+
+
+</body>
+
+</html>
