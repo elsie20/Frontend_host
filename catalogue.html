@@ -5,23 +5,98 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catalogue - Langster</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
 </head>
 
 <body>
-    <nav> <img src="images/Langster Catalogue.png" alt="logo">
+    <nav> <img src="/images/Langster Catalogue.png" alt="logo">
         <div class="navigation">
             <ul id="nav-links"></ul>
         </div>
     </nav>
 
     <section id="catalogue-page">
-        <h1>Book Catalogue</h1>
-        <p>Browse available books and borrow your next read.</p>
-        <input type="text" placeholder="Search by title, author or ISBN" id="find">
-        <div id="catalogue-list"></div>
-    </section>
+    <h1>Book Catalogue</h1>
+    <p>Browse available books and borrow your next read.</p>
+    <input type="text" placeholder="Search by title, author or ISBN" id="find">
+    <div id="catalogue-list">
+        <div class="catalogue-book">
+            <img src="/images/The-Silent-Patient.jpg" alt="book cover">
+            <div class="details">
+                <h6>The Silent Patient</h6>
+                <p class="description">A shocking murder and six years of silence from the only suspect.</p>
+                <p class="price">GHS 250</p>
+                <button class="borrow-btn" data-title="The Silent Patient" data-author="Alex Michaelides" data-isbn="1234" data-price="250">
+                    Borrow
+                </button>
+            </div>
+        </div>
+
+        <div class="catalogue-book">
+            <img src="/images/one of us is lying.webp" alt="One of Us Is Lying cover">
+            <div class="details">
+                <h6>One of Us Is Lying</h6>
+                <p class="description">Five students walk into detention but only four come out alive.</p>
+                <p class="price">GHS 210</p>
+                <button class="borrow-btn" data-title="One of Us Is Lying" data-author="Karen M. McManus" data-isbn="5678" data-price="210">
+                    Borrow
+                </button>
+            </div>
+        </div>
+
+        <div class="catalogue-book">
+            <img src="/images/the fault in our stars.jpg" alt="book cover">
+            <div class="details">
+                <h6>The Fault in Our Stars</h6>
+                <p class="description">A heartbreaking love story between two teens facing illness.</p>
+                <p class="price">GHS 679</p>
+                <button class="borrow-btn" data-title="The Fault in our stars" data-author="John Green" data-isbn="91011" data-price="679">
+                    Borrow
+                </button>
+            </div>
+        </div>
+
+        <div class="catalogue-book">
+            <img src="/images/twilight.webp" alt="Twisted Love cover">
+            <div class="details">
+                <h6>Twisted Love</h6>
+                <p class="description">Two lovers confront buried secrets and painful pasts.</p>
+                <p class="price">GHS 160</p>
+                <button class="borrow-btn" data-title="Twisted Love" data-author="Ana Huang" data-isbn="121314" data-price="160">
+                    Borrow
+                </button>
+            </div>
+        </div>
+
+        <div class="catalogue-book">
+            <img src="/images/becoming.webp" alt="Becoming cover">
+            <div class="details">
+                <h6>Becoming</h6>
+                <p class="description">Michelle Obama shares her journey from Chicago to the White House.</p>
+                <p class="price">GHS 250</p>
+                <button class="borrow-btn" data-title="Becoming" data-author="Michelle Obama" data-isbn="151617" data-price="250">
+                    Borrow
+                </button>
+            </div>
+        </div>
+
+         <div class="catalogue-book">
+            <img src="/images/twilight.webp" alt="Twilight cover">
+            <div class="details">
+                <h6>Twilight</h6>
+                <p class="description">Bella Swan falls in love with a mysterious vampire.</p>
+                <p class="price">GHS 320</p>
+                <button class="borrow-btn" data-title="Twilight" data-author="Stephenie Meyer" data-isbn="181920" data-price="320">
+                    Borrow
+                </button>
+            </div>
+        </div>
+
+
+    </div>
+</section>
+
 
     <footer>
         <div class="copyright">

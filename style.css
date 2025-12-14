@@ -237,7 +237,6 @@ nav .navigation ul li a{
     cursor: pointer;
 }
 
-/* Profile card specific tweaks */
 .profile-email {
     font-size: 0.9rem;
     margin-bottom: 8px;
@@ -253,7 +252,6 @@ nav .navigation ul li a{
     background-color: #962d22;
 }
 
-/* Profile page layout */
 #profile-page {
     max-width: 500px;
     margin: 60px auto;
@@ -288,7 +286,6 @@ nav .navigation ul li a{
     cursor: pointer;
 }
 
-/* Home unavailable state */
 #popular-books .Books.unavailable {
     opacity: 0.5;
     position: relative;
@@ -307,7 +304,6 @@ nav .navigation ul li a{
     text-transform: uppercase;
 }
 
-/* Order status */
 #borrow-list .order-item {
     display: flex;
     justify-content: space-between;
@@ -347,19 +343,29 @@ nav .navigation ul li a{
     margin-top: 15px;
 }
 
-/* Catalogue cards */
 #catalogue-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    grid-gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+#catalogue-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
 }
 
 .catalogue-book {
     background: #f9f9ff;
     border-radius: 10px;
-    padding: 15px;
+    padding: 10px;
     text-align: center;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .catalogue-book img {
@@ -396,12 +402,18 @@ nav .navigation ul li a{
     cursor: pointer;
     font-size: 0.9rem;
     font-weight: 600;
+    transition: 0.2s;
+}
+
+.catalogue-book button:hover {
+    background-color: rgb(44,44,80);
 }
 
 .catalogue-book button:disabled {
     background-color: #b0b0b0;
     cursor: not-allowed;
 }
+
 
 
 footer{
