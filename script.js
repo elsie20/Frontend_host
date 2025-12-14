@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const userEmail = localStorage.getItem('userEmail');
 
+
     function populateNav() {
         const nav = document.getElementById('nav-links');
         if (!nav) return;
@@ -27,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     populateNav();
 
+   
     function showCard(name) {
         const el = document.getElementById(`${name}-card`);
         if (el) el.style.display = 'flex';
@@ -36,10 +38,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (el) el.style.display = 'none';
     }
 
+
     if (location.hash) {
         const h = location.hash.replace('#', '');
         showCard(h);
     }
+
 
     document.querySelectorAll('.close').forEach(c => {
         c.addEventListener('click', () => hideCard(c.dataset.card));
@@ -63,6 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
     });
+
 
     const regBtn = document.getElementById('register-button');
     if (regBtn) {
@@ -100,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const password = document.getElementById('login-password').value;
             if (!email || !password) return alert('Please provide email and password');
 
-            fetch('http://localhost:5000/api/login', {
+            fetch('https://backend-host-1-8b0x.onrender.com/api/login',{
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password })
@@ -120,16 +125,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const catalogueList = document.getElementById('catalogue-list');
     if (catalogueList) {
-        fetch('http://localhost:5000/api/books')
+        fetch('https://backend-host-1-8b0x.onrender.com/api/books')
             .then(res => res.json())
             .then(books => {
+
                 const staticCards = Array.from(catalogueList.querySelectorAll('.catalogue-book'));
                 const staticTitles = staticCards.map(c => c.querySelector('h6')?.textContent.trim()).filter(Boolean);
                 const fetchedTitles = books.map(b => (b.title || '').trim());
 
                 const arraysEqual = (a, b) => a.length === b.length && a.every((v, i) => v === b[i]);
 
+
                 if (staticTitles.length && arraysEqual(staticTitles, fetchedTitles)) {
+
                     staticCards.forEach((card, idx) => {
                         const book = books[idx];
                         const btn = card.querySelector('.borrow-btn');
@@ -140,6 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             if (book.isbn) btn.dataset.isbn = book.isbn;
                             if (book.price) btn.dataset.price = book.price;
                         } else {
+                         
                             const details = card.querySelector('.details');
                             if (details) {
                                 const b = document.createElement('button');
@@ -157,16 +166,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     return;
                 }
 
-                catalogueList.innerHTML = ''; 
+
+                catalogueList.innerHTML = '';
                 books.forEach(book => {
                     const bookDiv = document.createElement('div');
                     bookDiv.classList.add('catalogue-book');
 
-                    let coverImg = book.cover || ''; 
+                   
+                    let coverImg = book.cover || '';
                     if (!coverImg) {
                         const match = staticCards.find(c => c.querySelector('h6')?.textContent.trim() === (book.title || '').trim());
                         coverImg = match?.querySelector('img')?.src || '';
                     }
+                 
                     if (!coverImg) coverImg = 'images/bestseller.avif';
 
                     bookDiv.innerHTML = `\n                        <img src="${coverImg}" alt="${(book.title || '').replace(/\"/g, '')} cover">\n                        <div class="details">\n                          <h6>${book.title}</h6>\n                          <p class="description">${book.description || ''}</p>\n                          <p class="price">GHS ${book.price}</p>\n                          <button class="borrow-btn" data-id="${book.id}" data-title="${book.title}" data-author="${book.author || ''}" data-isbn="${book.isbn || ''}" data-price="${book.price}">Borrow</button>\n                        </div>`;
@@ -195,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
         emailDisplay.textContent = userEmail;
 
         document.getElementById('profile-save-button').addEventListener('click', () => {
-            fetch('http://localhost:5000/api/profile', {
+            fetch('https://backend-host-1-8b0x.onrender.com/api/profile', {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email: userEmail, name: nameInput.value, password: passwordInput.value || undefined })
@@ -207,7 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.getElementById('profile-delete-button').addEventListener('click', () => {
             if (!confirm('Are you sure you want to delete your account?')) return;
-            fetch('http://localhost:5000/api/profile', {
+            fetch('https://backend-host-1-8b0x.onrender.com/api/profile', {
                 method: 'DELETE',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email: userEmail })
@@ -222,11 +234,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+
     const borrowList = document.getElementById('borrow-list');
     if (borrowList) {
         if (!userEmail) return window.location.href = 'index.html';
         function loadBorrows() {
-            fetch(`http://localhost:5000/api/borrow?user_email=${encodeURIComponent(userEmail)}`)
+            fetch(`https://backend-host-1-8b0x.onrender.com/api/borrow?user_email=${encodeURIComponent(userEmail)}`)
                 .then(res => res.json())
                 .then(data => {
                     borrowList.innerHTML = '';
@@ -248,6 +261,7 @@ document.addEventListener('DOMContentLoaded', () => {
         loadBorrows();
     }
 
+
     document.addEventListener('click', (e) => {
         const borrowBtn = e.target.closest('.borrow-btn');
         if (borrowBtn) {
@@ -256,7 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const book_id = borrowBtn.dataset.id || borrowBtn.dataset.bookId || borrowBtn.dataset.isbn;
             const payload = book_id ? { book_id, user_email: logged } : { title: borrowBtn.dataset.title, author: borrowBtn.dataset.author, isbn: borrowBtn.dataset.isbn, price: borrowBtn.dataset.price, user_email: logged };
 
-            fetch('http://localhost:5000/api/borrow', {
+            fetch('https://backend-host-1-8b0x.onrender.com/api/borrow', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
@@ -281,7 +295,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!confirm('Return this book?')) return;
             const borrowId = returnBtn.dataset.borrowId;
             const logged = localStorage.getItem('userEmail');
-            fetch('http://localhost:5000/api/return', {
+            fetch('https://backend-host-1-8b0x.onrender.com/api/return', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ borrow_id: borrowId, user_email: logged })
@@ -289,9 +303,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 .then(res => res.json())
                 .then(data => {
                     alert(data.message || 'Returned');
+                    
                     const borrowListEl = document.getElementById('borrow-list');
                     if (borrowListEl) {
-                        fetch(`http://localhost:5000/api/borrow?user_email=${encodeURIComponent(logged)}`)
+                        
+                        fetch(`https://backend-host-1-8b0x.onrender.com/api/borrow?user_email=${encodeURIComponent(logged)}`)
                             .then(res => res.json())
                             .then(items => {
                                 borrowListEl.innerHTML = '';
